@@ -1,0 +1,69 @@
+<div class="gestion-tables-container">
+    <h1>Ingreso de Tablets</h1>
+  
+    <div class="top-actions">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar en el historial">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="agregarIngreso()">
+        <mat-icon>add</mat-icon> Crear Ingreso
+      </button>
+    </div>
+  
+    <div class="table-container">
+      <mat-table [dataSource]="dataSource()" class="mat-elevation-z8">
+  
+        <ng-container matColumnDef="n">
+          <mat-header-cell *matHeaderCellDef> N° </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.n}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="tablet">
+          <mat-header-cell *matHeaderCellDef> Tablet </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.tablet}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="usuario">
+          <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.usuario}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="fechaAsignacion">
+          <mat-header-cell *matHeaderCellDef> Fecha Asignación </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.fechaAsignacion | date}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="fechaDevolucion">
+          <mat-header-cell *matHeaderCellDef> Fecha Devolución </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.fechaDevolucion | date}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="observacion">
+          <mat-header-cell *matHeaderCellDef> Observación </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.observacion}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="estado">
+          <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso"> {{ingreso.estado}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+          <mat-cell *matCellDef="let ingreso">
+            <button mat-icon-button color="primary" (click)="editarIngreso(ingreso)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="eliminarIngreso(ingreso)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>

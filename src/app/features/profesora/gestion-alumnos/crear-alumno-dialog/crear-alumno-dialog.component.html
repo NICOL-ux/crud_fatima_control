@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Crear Nuevo Alumno</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="alumno.nombre" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido</mat-label>
+    <input matInput [(ngModel)]="alumno.apellido" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Grado</mat-label>
+    <input matInput [(ngModel)]="alumno.grado" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>DNI</mat-label>
+    <input matInput [(ngModel)]="alumno.dni" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Sección</mat-label>
+    <input matInput [(ngModel)]="alumno.seccion">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Año Escolar</mat-label>
+    <input matInput type="number" [(ngModel)]="alumno.anioEscolar" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Teléfono Apoderado</mat-label>
+    <input matInput [(ngModel)]="alumno.telefonoApoderado">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="crear()" [disabled]="!alumno.nombre || !alumno.apellido || !alumno.grado || !alumno.dni || !alumno.anioEscolar">Crear</button>
+</mat-dialog-actions>

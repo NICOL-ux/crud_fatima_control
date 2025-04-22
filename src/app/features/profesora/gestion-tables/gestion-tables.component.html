@@ -1,0 +1,74 @@
+<div class="gestion-tables-container">
+    <h1>Gestión de Tablets</h1>
+  
+    <div class="top-actions">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar tablet">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="agregarTablet()">
+        <mat-icon>add</mat-icon> Agregar Tablet
+      </button>
+    </div>
+  
+    <div class="table-container">
+      <mat-table [dataSource]="dataSource()" class="mat-elevation-z8">
+  
+        <ng-container matColumnDef="n">
+          <mat-header-cell *matHeaderCellDef> N° </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.n}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="codigo">
+          <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.codigo}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="marca">
+          <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.marca}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="modelo">
+          <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.modelo}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="grado">
+          <mat-header-cell *matHeaderCellDef> Grado </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.grado}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="observacion">
+          <mat-header-cell *matHeaderCellDef> Observación </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.observacion}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="estado">
+          <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{tablet.estado}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha">
+          <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+          <mat-cell *matCellDef="let tablet"> {{ tablet.fecha | date }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+          <mat-cell *matCellDef="let tablet">
+            <button mat-icon-button color="primary" (click)="editarTablet(tablet)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="eliminarTablet(tablet)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>

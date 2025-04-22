@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Editar Tablet</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>N°</mat-label>
+    <input matInput [ngModel]="tablet.n" [readonly]="true">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Código</mat-label>
+    <input matInput [(ngModel)]="tablet.codigo" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Marca</mat-label>
+    <input matInput [(ngModel)]="tablet.marca" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Modelo</mat-label>
+    <input matInput [(ngModel)]="tablet.modelo" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Grado</mat-label>
+    <input matInput [(ngModel)]="tablet.grado">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Observación</mat-label>
+    <input matInput [(ngModel)]="tablet.observacion">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="tablet.estado" required>
+      <mat-option *ngFor="let estado of estados" [value]="estado.value">
+        {{ estado.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha de Ingreso</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="tablet.fecha" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="guardar()" [disabled]="!tablet.codigo || !tablet.marca || !tablet.modelo || !tablet.estado || !tablet.fecha">Guardar</button>
+</mat-dialog-actions>

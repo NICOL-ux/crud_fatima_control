@@ -1,0 +1,112 @@
+.gestion-alumnos-container {
+  padding: 20px;
+  background: linear-gradient(to bottom, #0575E685, #02298A);
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+
+h1 {
+  color: #0f3a8c; /* Un azul más oscuro para el título */
+  margin-bottom: 30px;
+  font-size: 2.8em; /* Ligeramente más grande */
+  font-weight: 700; /* Más negrita */
+  text-align: center; /* Centrar el título */
+}
+
+.top-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px; /* Más espacio debajo */
+  flex-wrap: wrap;
+  padding: 15px; /* Añadir un poco de padding interno */
+  background-color: #e8f0fe; /* Un azul muy claro de fondo */
+  border-radius: 8px;
+}
+
+.top-actions mat-form-field {
+  flex-grow: 1;
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+}
+
+.top-actions button {
+  height: 56px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.top-actions button.crear-usuario {
+  background-color: #ffeb3b; /* Amarillo para crear */
+  color: #212121;
+}
+
+.table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  overflow-x: auto;
+  flex-grow: 1;
+}
+
+mat-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+
+  .mat-mdc-header-row {
+    background-color: #6ea1e3; /* Un azul más claro para el encabezado */
+    color: white;
+    font-weight: 600; /* Ligeramente más negrita */
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding: 16px 20px; /* Más padding en las celdas */
+    border-bottom: 1px solid #e0e0e0; /* Línea divisoria más clara */
+    text-align: left;
+    font-size: 0.95em; /* Ligeramente más grande */
+  }
+
+  .mat-mdc-cell:last-child,
+  .mat-mdc-header-cell:last-child {
+    text-align: right;
+  }
+
+  .mat-mdc-row:hover {
+    background-color: #f0f8ff; /* Un azul muy claro al pasar el ratón */
+  }
+
+  .acciones-cell {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .acciones-cell button {
+    border-radius: 8px; /* Bordes más redondeados para los botones de acción */
+    width: auto; /* Ajustar al contenido */
+    height: 36px;
+    line-height: normal;
+    padding: 8px 12px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .acciones-cell button.editar {
+    background-color: #4caf50; /* Verde para editar */
+  }
+
+  .acciones-cell button.eliminar {
+    background-color: #f44336; /* Rojo para eliminar */
+  }
+
+  .acciones-cell button mat-icon {
+    margin-right: 5px;
+  }
+}
